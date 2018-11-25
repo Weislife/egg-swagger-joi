@@ -1,0 +1,28 @@
+{
+  "extends": "eslint-config-egg",
+  "plugins": [
+    "spellcheck"
+  ],
+  "rules": {
+    "linebreak-style": [0, "error", "windows"],
+    "no-trailing-spaces": 0,
+    "newline-per-chained-call": [2, {"ignoreChainWithDepth": 6}],
+    "spellcheck/spell-checker": [0,
+      {
+        "comments": true,
+        "strings": true,
+        "identifiers": true,
+        "lang": "en_US",
+        "skipWords": [],
+        "skipIfMatch": [
+          "http://[^s]*",
+          "^[-\\w]+\/[-\\w\\.]+$" //For MIME Types
+        ],
+        "skipWordIfMatch": [
+          "^foobar.*$" // words that begin with foobar will not be checked
+        ],
+        "minLength": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "name": "game-platform-api",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "ali-oss": "^6.0.1",
+    "async": "^2.6.1",
+    "egg": "^2.2.1",
+    "egg-mongoose": "^3.0.0",
+    "egg-router-plus": "^1.2.1",
+    "egg-scripts": "^2.5.0",
+    "egg-security": "^2.2.2",
+    "egg-socket.io": "^4.1.1",
+    "jsonwebtoken": "^8.3.0",
+    "kcors": "^2.2.2",
+    "koa-joi-swagger": "^1.1.1",
+    "moment": "^2.22.2",
+    "swagger-ui-dist": "^3.19.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^4.3.5",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.14.0",
+    "eslint": "^4.11.0",
+    "eslint-config-egg": "^6.0.0",
+    "eslint-plugin-spellcheck": "0.0.10",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "commitizen": "^2.10.1",
+    "standard-version": "^4.4.0",
+    "webstorm-disable-index": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start_production": "egg-scripts start --sticky --env=production --title=egg-server-",
+    "start_prerelease": "egg-scripts start --sticky --env=prerelease --title=egg-server-",
+    "start_test_52": "egg-scripts start --sticky --env=test_52 --title=egg-server-",
+    "start_default": "egg-scripts start --sticky --env=default --title=egg-server-",
+    "stop": "egg-scripts stop --title=egg-server-",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "release": "standard-version",
+    "ct": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "standard-version": {
+    "skip": {
+      "commit": true,
+      "tag": true
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "git add"
+    ]
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}

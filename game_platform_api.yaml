@@ -1,0 +1,9 @@
+version: '3'
+services:
+  game_platform_api:
+    build: ./
+    container_name: game_platform_api
+    environment:
+      - current_run_env=production
+    expose:
+      - "7113"
