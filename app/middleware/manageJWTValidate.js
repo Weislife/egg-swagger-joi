@@ -25,15 +25,15 @@ module.exports = (options, app) => {
             await next();
             return;
           } catch (err) {
-            ctx.status = 403;
-            ctx.body = {
-              message: 'token 无效',
-            };
-
-            if (err.name !== 'TokenExpiredError' || err.name !== 'JsonWebTokenError') {
+            if (err.name === 'TokenExpiredError' || err.name === 'JsonWebTokenError') {
+              ctx.status = 403;
+              ctx.body = {
+                message: 'token 无效',
+              };
+            } else {
               if (err.name === 'BadRequestError') {
                 ctx.status = 400;
-              } else if (err.name === 'InternalServerError') {
+              } else {
                 ctx.status = 500;
               }
 
