@@ -25,6 +25,20 @@ module.exports = (options, app) => {
             await next();
             return;
           } catch (err) {
+            if (err.status === 200) {
+              ctx.status = err.status;
+
+              const message = err.message;
+              const err_code = err.err_code;
+
+              ctx.body = {
+                ... (message && { message }),
+                err_code,
+              };
+
+              return;
+            }
+            
             if (err.name !== 'TokenExpiredError' && err.name !== 'JsonWebTokenError') {
               if (err.name === 'BadRequestError') {
                 ctx.status = 400;
