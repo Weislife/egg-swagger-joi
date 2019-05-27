@@ -3,9 +3,15 @@
   "plugins": [
     "spellcheck"
   ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
   "rules": {
     "linebreak-style": [0, "error", "windows"],
     "no-trailing-spaces": 0,
+    "no-labels": 0,
     "newline-per-chained-call": [2, {"ignoreChainWithDepth": 6}],
     "spellcheck/spell-checker": [0,
       {
