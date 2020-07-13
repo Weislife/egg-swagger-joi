@@ -32,7 +32,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "commitizen": "^2.10.1",
-    "standard-version": "^4.4.0",
+    "standard-version": "^8.0.1",
     "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
